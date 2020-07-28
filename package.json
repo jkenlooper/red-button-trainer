@@ -1,0 +1,23 @@
+{
+  "name": "red-button-trainer",
+  "version": "1.0.0",
+  "description": "Production grade red button training for business critical applications.",
+  "main": "site.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "mkdir -p dist && cp node_modules/react/umd/react.production.min.js node_modules/react-dom/umd/react-dom.production.min.js dist/",
+    "babel": "babel src --out-dir dist --presets react-app/prod --copy-files",
+    "build": "npm run babel -- --minified",
+    "watch": "npm run babel -- --watch"
+  },
+  "author": "Jake Hickenlooper",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
