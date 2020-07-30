@@ -1,8 +1,7 @@
 /// <reference types="react" />
 /// <reference types="react-dom" />
 
-import redButtonMachine from "./red-button/red-button-machine.js";
-import { event } from "./red-button/red-button-machine-definition.js";
+import { redButtonMachine, event } from "red-button-machine";
 
 import RedButton from "./red-button/index.js";
 

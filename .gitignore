@@ -2,10 +2,10 @@
 
 *.DS_Store
 
-/.eslintcache
+.eslintcache
 
-/dist/
-/node_modules/
+dist/
+node_modules/
 
 # Temporary ignore of package-lock.json until first release
-/package-lock.json
+package-lock.json
