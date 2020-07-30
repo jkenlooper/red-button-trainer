@@ -7,3 +7,5 @@
 /dist/
 /node_modules/
 
+# Temporary ignore of package-lock.json until first release
+/package-lock.json

@@ -1,6 +1,8 @@
 import commonjs from "@rollup/plugin-commonjs";
+import babel from "@rollup/plugin-babel";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
+import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import postcssImport from "postcss-import";
 import postcssURL from "postcss-url";
@@ -11,6 +13,7 @@ const isProduction =
   !process.env.ROLLUP_WATCH && process.env.NODE_ENV === "production";
 
 export default {
+  external: ["react", "react-dom"],
   input: {
     app: "src/index.js",
   },
@@ -19,6 +22,10 @@ export default {
     dir: "dist",
     format: "module",
     sourcemap: true,
+    globals: {
+      react: "React",
+      "react-dom": "ReactDom",
+    },
   },
   plugins: [
     postcss({
@@ -37,7 +44,14 @@ export default {
         postcssPresetEnv(),
       ],
     }),
+    // Use babel for handling react jsx code
+    babel({
+      babelHelpers: "bundled",
+      skipPreflightCheck: true,
+      presets: ["@babel/preset-react"],
+    }),
     nodeResolve(),
+    typescript(),
     commonjs(),
     isProduction &&
       terser({
