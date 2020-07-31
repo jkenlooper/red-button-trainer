@@ -1,5 +1,5 @@
 {
-  "name": "red-button-trainer",
+  "name": "red-button-trainer--react",
   "version": "0.0.1",
   "description": "Production grade red button training for business critical applications.",
   "homepage": "https://github.com/jkenlooper/red-button-trainer/",
@@ -14,18 +14,8 @@
     "eslint": "eslint",
     "stylelint": "stylelint",
     "rollup": "rollup",
-    "mocha": "mocha",
-    "typecheck": "npm run tsc -- --noEmit --jsx react -p .",
-    "jsdoc": "jsdoc -c src/_jsdoc.conf.json",
-    "tsc": "tsc",
     "distfiles": "./bin/distfiles.sh",
-    "pretest": "npm run typecheck",
-    "test": "npm run mocha -- --recursive 'src/**/*.spec.{js,mjs}'",
-    "oldprebuild": "mkdir -p dist && cp node_modules/react/umd/react.production.min.js node_modules/react-dom/umd/react-dom.production.min.js dist/",
-    "oldbabel": "babel src --out-dir dist --presets react-app/prod --copy-files",
-    "build": "npm run typecheck && npm run distfiles && npm run jsdoc && NODE_ENV=production rollup -c",
-    "babelbuild": "npm run babel -- --minified",
-    "babelwatch": "npm run babel -- --watch"
+    "build": "npm run distfiles && NODE_ENV=production rollup -c"
   },
   "author": "Jake Hickenlooper",
   "license": "AGPL-3.0-only",
@@ -43,9 +33,7 @@
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.20.5",
     "husky": "^4.2.5",
-    "jsdoc": "^3.6.4",
     "lint-staged": "^10.2.9",
-    "mocha": "^8.0.1",
     "postcss": "^7.0.32",
     "postcss-custom-media": "^7.0.8",
     "postcss-import": "^12.0.1",
@@ -57,15 +45,13 @@
     "rollup-plugin-terser": "^5.0.0",
     "stylelint": "^13.6.0",
     "stylelint-config-prettier": "^8.0.1",
-    "stylelint-prettier": "^1.1.2",
-    "tslib": "^2.0.0",
-    "typescript": "^3.9.7"
+    "stylelint-prettier": "^1.1.2"
   },
   "dependencies": {
     "@xstate/fsm": "^1.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "red-button-machine": "file:libs/red-button-machine"
+    "red-button-machine": "file:../../libs/red-button-machine"
   },
   "engines": {
     "node": ">=14.6.0"

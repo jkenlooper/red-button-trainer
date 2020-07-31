@@ -3,6 +3,8 @@
 rm -rf dist
 mkdir -p dist
 
+touch dist/app.bundle.css
+
 #cp node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js \
 #  dist/
 #mkdir -p dist/bundles

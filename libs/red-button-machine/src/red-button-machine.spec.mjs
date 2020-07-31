@@ -1,8 +1,8 @@
 import mocha from "mocha";
 import chai from "chai";
 
-import redButtonMachine from "./red-button-machine.js";
-import { state, action, event } from "./red-button-machine-definition.js";
+import { redButtonMachine } from "./red-button-machine.mjs";
+import { state, action, event } from "./red-button-machine-definition.mjs";
 
 const machine = redButtonMachine;
 

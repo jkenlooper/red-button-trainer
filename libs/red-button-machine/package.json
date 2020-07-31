@@ -10,18 +10,16 @@
     "eslint": "eslint",
     "rollup": "rollup",
     "mocha": "mocha",
-    "typecheck": "npm run tsc -- --noEmit -p .",
-    "tsc": "tsc",
-    "pretest": "npm run typecheck",
     "test": "npm run mocha -- --recursive 'src/**/*.spec.{js,mjs}'",
     "watch": "npm run rollup -- --watch -c",
-    "build": "npm run typecheck && NODE_ENV=production rollup -c",
+    "build": "NODE_ENV=production rollup -c",
     "postinstall": "npm run build"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.1",
     "@rollup/plugin-node-resolve": "^7.1.3",
     "@rollup/plugin-typescript": "^5.0.2",
+    "@xstate/fsm": "^1.4.0",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
@@ -29,9 +27,7 @@
     "mocha": "^8.0.1",
     "prettier": "2.0.4",
     "rollup": "^2.22.1",
-    "rollup-plugin-terser": "^5.0.0",
-    "tslib": "^2.0.0",
-    "typescript": "^3.9.7"
+    "rollup-plugin-terser": "^5.0.0"
   },
   "peerDependencies": {
     "@xstate/fsm": "^1.4.0"

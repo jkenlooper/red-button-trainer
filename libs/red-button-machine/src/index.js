@@ -1,1 +1,1 @@
-export { redButtonMachine, event } from "./red-button-machine.js";
+export { redButtonMachine, event } from "./red-button-machine.mjs";

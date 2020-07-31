@@ -1,7 +1,5 @@
-import commonjs from "@rollup/plugin-commonjs";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
-import typescript from "@rollup/plugin-typescript";
 
 const isProduction =
   !process.env.ROLLUP_WATCH && process.env.NODE_ENV === "production";
@@ -22,8 +20,6 @@ export default {
   },
   plugins: [
     nodeResolve(),
-    typescript(),
-    commonjs(),
     isProduction &&
       terser({
         compress: {
