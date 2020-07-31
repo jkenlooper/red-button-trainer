@@ -1,5 +1,4 @@
-//import xstate from "@xstate/fsm";
-//const assign = xstate.assign;
+import { assign } from "@xstate/fsm";
 
 const state = Object.freeze({
   up: "up",
@@ -21,7 +20,7 @@ const context = Object.freeze({
 const stateDefinitions = {};
 
 stateDefinitions[state.up] = {
-  //entry: [assign(Object.assign({}, context))],
+  entry: [assign(Object.assign({}, context))],
   on: {},
 };
 
