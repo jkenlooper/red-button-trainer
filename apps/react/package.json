@@ -1,7 +1,7 @@
 {
   "name": "red-button-trainer--react",
   "version": "0.0.1",
-  "description": "Production grade red button training for business critical applications.",
+  "description": "Red Button Trainer built using React",
   "homepage": "https://github.com/jkenlooper/red-button-trainer/",
   "bugs": {
     "url": "https://github.com/jkenlooper/red-button-trainer/issues"
@@ -28,44 +28,19 @@
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "chai": "^4.2.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.20.5",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.9",
     "postcss": "^7.0.32",
     "postcss-custom-media": "^7.0.8",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",
     "postcss-url": "^8.0.0",
-    "prettier": "2.0.4",
     "rollup": "^2.22.1",
     "rollup-plugin-postcss": "^3.1.3",
-    "rollup-plugin-terser": "^5.0.0",
-    "stylelint": "^13.6.0",
-    "stylelint-config-prettier": "^8.0.1",
-    "stylelint-prettier": "^1.1.2"
+    "rollup-plugin-terser": "^5.0.0"
   },
   "dependencies": {
     "@xstate/fsm": "^1.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "red-button-machine": "file:../../libs/red-button-machine"
-  },
-  "engines": {
-    "node": ">=14.6.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{mjs,js,css,json,md,html}": [
-      "prettier --write"
-    ],
-    "off*.{mjs,js}": "eslint --cache --fix --quiet",
-    "*.css": "stylelint --fix"
   }
 }

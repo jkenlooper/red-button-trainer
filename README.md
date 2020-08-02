@@ -12,5 +12,6 @@ Production grade red button training for business critical applications.
 ## Install
 
 ```bash
-make
+npm install;
+make;
 ```
