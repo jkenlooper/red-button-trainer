@@ -1,3 +1,3 @@
 # Red Button State Machine
 
-![Generated State Diagram](/diagram.svg)
+![Generated State Diagram](diagram.svg)
