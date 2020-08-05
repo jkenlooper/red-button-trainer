@@ -5,7 +5,9 @@ const isProduction =
   !process.env.ROLLUP_WATCH && process.env.NODE_ENV === "production";
 
 export default {
-  external: ["@xstate/fsm"],
+  external: [
+    // "@xstate/fsm"
+  ],
   input: {
     "red-button-machine": "src/index.js",
   },
@@ -15,7 +17,7 @@ export default {
     format: "module",
     sourcemap: true,
     globals: {
-      "@xstate/fsm": "xstate",
+      // "@xstate/fsm": "xstate",
     },
   },
   plugins: [

@@ -1,19 +1,28 @@
 import mocha from "mocha";
 import chai from "chai";
 
-import { redButtonMachine } from "./red-button-machine.mjs";
-import { state, action, event } from "./red-button-machine-definition.mjs";
+import {
+  redButtonMachine,
+  redButtonMachineDefinition,
+  state,
+  action,
+  event,
+} from "../dist/red-button-machine.bundle.js";
 
 const machine = redButtonMachine;
 
-mocha.suite("Initial suite", () => {
-  mocha.test("something", () => {
+mocha.suite("Button states", () => {
+  mocha.test("Initial", () => {
     chai.assert.equal(machine.initialState.value, state.up);
-    let nextState = machine.transition(machine.initialState.value, {
+  });
+  mocha.test("ButtonClicked when state is up", () => {
+    let nextState = machine.transition(state.up, {
       type: event.ButtonClicked,
+      /*
       payload: {
         id: 1,
       },
+      */
     });
     chai.assert.equal(nextState.value, state.down);
   });

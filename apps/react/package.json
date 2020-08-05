@@ -17,9 +17,8 @@
     "distfiles": "./bin/distfiles.sh",
     "build": "npm run distfiles && NODE_ENV=production rollup -c"
   },
-  "author": "Jake Hickenlooper",
-  "license": "AGPL-3.0-only",
   "devDependencies": {
+    "@babel/core": "^7.11.1",
     "@babel/preset-react": "^7.10.4",
     "@rollup/plugin-babel": "^5.1.0",
     "@rollup/plugin-commonjs": "^11.0.1",

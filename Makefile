@@ -17,6 +17,10 @@ FORCE:
 .PHONY: all
 all: apps/react/dist/app.bundle.js
 
+.PHONY: test
+test: libs/red-button-machine/dist/red-button-machine.bundle.js
+	(cd libs/red-button-machine/; npm test;)
+
 libs/red-button-machine/package-lock.json: libs/red-button-machine/package.json
 	(cd libs/red-button-machine/; npm install;)
 	touch $@

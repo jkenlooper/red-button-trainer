@@ -1,7 +1,7 @@
 {
   "name": "red-button-machine",
   "version": "0.0.1",
-  "description": "",
+  "description": "Finite state machine for use by Red Button Trainer apps.",
   "private": true,
   "type": "module",
   "main": "dist/red-button-machine.bundle.js",
@@ -9,7 +9,7 @@
     "prettier": "prettier",
     "eslint": "eslint",
     "rollup": "rollup",
-    "mocha": "mocha",
+    "mocha": "mocha --require @babel/register --require @babel/polyfill",
     "mmdc": "mmdc",
     "test": "npm run mocha -- --recursive 'src/**/*.spec.{js,mjs}'",
     "watch": "npm run rollup -- --watch -c",
@@ -17,6 +17,11 @@
     "postinstall": "npm run build"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.0",
+    "@babel/polyfill": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/register": "^7.10.5",
     "@mermaid-js/mermaid-cli": "^8.6.4",
     "@rollup/plugin-commonjs": "^11.0.1",
     "@rollup/plugin-node-resolve": "^7.1.3",
