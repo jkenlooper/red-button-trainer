@@ -10,6 +10,7 @@ export default {
   ],
   input: {
     "red-button-machine": "src/index.js",
+    tests: "src/red-button-machine.spec.mjs",
   },
   output: {
     entryFileNames: "[name].bundle.js",

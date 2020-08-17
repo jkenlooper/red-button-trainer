@@ -1,4 +1,4 @@
-import { assign } from "@xstate/fsm";
+import { assign } from "../node_modules/@xstate/fsm/es/index.js";
 
 const state = Object.freeze({
   up: "up",

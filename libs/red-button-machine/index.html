@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mocha Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+  </head>
+
+  <body>
+    <div id="mocha"></div>
+    <script src="node_modules/mocha/mocha.js"></script>
+
+    <!-- setup -->
+    <script type="module" class="mocha-init">
+      import "./node_modules/chai/chai.js";
+      mocha.setup("tdd");
+    </script>
+
+    <!-- run -->
+    <script type="module" class="mocha-init">
+      import "./src/sum.spec.mjs";
+      import "./src/red-button-machine.spec.mjs";
+
+      mocha.checkLeaks();
+      mocha.run();
+    </script>
+  </body>
+</html>

@@ -11,7 +11,7 @@
     "rollup": "rollup",
     "mocha": "mocha --require @babel/register --require @babel/polyfill",
     "mmdc": "mmdc",
-    "test": "npm run mocha -- --recursive 'src/**/*.spec.{js,mjs}'",
+    "debug": "npm run rollup -- -c",
     "watch": "npm run rollup -- --watch -c",
     "build": "NODE_ENV=production rollup -c",
     "postinstall": "npm run build"
@@ -34,7 +34,7 @@
     "mocha": "^8.0.1",
     "prettier": "2.0.4",
     "rollup": "^2.22.1",
-    "rollup-plugin-terser": "^5.0.0"
+    "rollup-plugin-terser": "^7.0.0"
   },
   "peerDependencies": {
     "@xstate/fsm": "^1.4.0"
