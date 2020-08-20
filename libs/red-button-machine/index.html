@@ -2,28 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Mocha Tests</title>
+    <title>Red Button Machine</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
   </head>
 
   <body>
-    <div id="mocha"></div>
-    <script src="node_modules/mocha/mocha.js"></script>
+    <h1>Red Button Machine</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="unit-tests.html">Unit Tests</a>
+    </nav>
+    <p>
+      Finite state machine for use by Red Button Trainer apps.
+    </p>
 
-    <!-- setup -->
-    <script type="module" class="mocha-init">
-      import "./node_modules/chai/chai.js";
-      mocha.setup("tdd");
-    </script>
-
-    <!-- run -->
-    <script type="module" class="mocha-init">
-      import "./src/sum.spec.mjs";
-      import "./src/red-button-machine.spec.mjs";
-
-      mocha.checkLeaks();
-      mocha.run();
-    </script>
+    <img src="diagram.svg" alt="Generated State Diagram" />
   </body>
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mocha Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+  </head>
+
+  <body>
+    <nav>
+      <a href="./">Red Button Machine</a>
+    </nav>
+
+    <div id="mocha"></div>
+
+    <!-- Setup -->
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/chai/chai.js"></script>
+    <script>
+      mocha.setup("tdd");
+    </script>
+
+    <!-- Load specs -->
+    <script type="module" src="src/red-button-machine.spec.mjs"></script>
+
+    <!-- Run -->
+    <script>
+      window.onload = () => {
+        mocha.checkLeaks();
+        mocha.run();
+      };
+    </script>
+  </body>
+</html>

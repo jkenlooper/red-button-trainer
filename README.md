@@ -9,9 +9,9 @@ Production grade red button training for business critical applications.
 - angular
 - web components
 
-## Install
+## Development
 
 ```bash
 npm install;
-make;
+npm start;
 ```

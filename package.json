@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "Production grade red button training for business critical applications.",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "start": "serve .",
+    "postinstall": "make"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jkenlooper/red-button-trainer.git"
@@ -40,5 +43,8 @@
     ],
     "off*.{mjs,js}": "eslint --cache --fix --quiet",
     "*.css": "stylelint --fix"
+  },
+  "dependencies": {
+    "serve": "^11.3.2"
   }
 }
