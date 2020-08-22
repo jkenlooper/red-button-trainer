@@ -8,9 +8,12 @@
 %% `npm run mmdc -- --input src/red-button-machine.mmd --output diagram.svg`
 %% Add `-p puppeteer.config.json` for sandbox workaround if needed.
 
+
 stateDiagram-v2
   [*] --> up
-  note left of up : <div><strong>entry</strong> / assign default context</div> exit / something else
-  up --> down : <div>ButtonClicked</div> do / updateButton
-  down --> up : <div>ButtonClicked</div> do / updateButton
-  note right of down : Example of inline note
+  note right of [*] : <dl><dt>context</dt><dd>id {String}</dd><dd>responseTime {Int}</dd><dd>lights {Array of booleans}</dd></dl>
+  note left of up : <ul><li>entry / set default context</li></ul>
+  up --> down : <div>ButtonClicked</div> <ul><li>do / updateButton</li><li>do / sendError</li></ul>
+  down --> up : <div>Reset</div> <ul><li>do / updateButton</li>
+  up --> ready : <div>Start</div> <ul><li>do / setLights</li><li>do / startTimer</li></ul>
+  ready --> down : <div>ButtonClicked</div> <ul><li>do / stopTimer</li><li>do / updateButton</li></ul>
