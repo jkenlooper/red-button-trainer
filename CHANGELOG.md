@@ -21,6 +21,8 @@ Types of changes
 ## [Unreleased] - ...
 -->
 
+## [Unreleased] - ...
+
 ## [0.0.2] - 2020-08-20
 
 Unit test setup and integration.

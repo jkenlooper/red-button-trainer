@@ -42,5 +42,8 @@
   },
   "peerDependencies": {
     "@xstate/fsm": "^1.4.0"
+  },
+  "dependencies": {
+    "utility-redbutton-css": "file:../utility-redbutton-css"
   }
 }

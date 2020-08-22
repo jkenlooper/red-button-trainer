@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <RedButton
-        label="Eject"
+        label="Halt"
         value={this.state.button}
         onClick={() => this.handleClick()}
       />
