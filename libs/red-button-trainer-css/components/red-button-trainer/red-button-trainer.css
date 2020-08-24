@@ -1,0 +1,17 @@
+.RedButtonTrainer {
+  background-color: white;
+  color: black;
+  max-width: 42em;
+}
+.RedButtonTrainer > * + * {
+  margin-top: 20px;
+}
+
+.RedButtonTrainer-display {
+}
+
+.RedButtonTrainer-output {
+}
+
+.RedButtonTrainer-console {
+}

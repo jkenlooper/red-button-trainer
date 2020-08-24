@@ -1,0 +1,7 @@
+{
+  "name": "red-button-trainer",
+  "version": "1.0.0",
+  "description": "Red Button Trainer component CSS for Red Button Trainer apps.",
+  "main": "red-button-trainer.css",
+  "style": "red-button-trainer.css"
+}

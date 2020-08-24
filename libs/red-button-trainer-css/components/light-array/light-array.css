@@ -1,0 +1,19 @@
+.LightArray {
+}
+
+.LightArray-list {
+  display: grid;
+  grid-template-columns: 15em 15em;
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.LightArray-listItem {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}

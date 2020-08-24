@@ -51,14 +51,6 @@ stateDefinitions[state.down] = {
   on: {},
 };
 
-/*
-stateDefinitions[state.down].on[event.ButtonClicked] = [
-  {
-    target: state.down,
-    actions: [action.updateButton],
-  },
-];
-*/
 stateDefinitions[state.down].on[event.Reset] = [
   {
     target: state.up,
