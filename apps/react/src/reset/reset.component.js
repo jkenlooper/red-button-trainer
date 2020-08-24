@@ -1,24 +1,23 @@
 /// <reference types="react" />
 //import React from "react";
 
-import "red-button-css";
+import "reset-css";
 
-class RedButton extends React.Component {
+class Reset extends React.Component {
   render() {
     return (
-      <div className="RedButton">
+      <div className="Reset">
         <button
           type="button"
-          id="red-button"
           disabled={this.props.disabled}
-          className="RedButton-button"
+          className="Reset-button"
           onClick={() => this.props.onClick()}
         >
-          {this.props.label}
+          Reset
         </button>
       </div>
     );
   }
 }
 
-export default RedButton;
+export default Reset;
