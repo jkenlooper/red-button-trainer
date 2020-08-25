@@ -47,7 +47,9 @@
     "react-dom": "^16.13.1",
     "red-button-css": "file:../../libs/red-button-trainer-css/components/red-button",
     "red-button-machine": "file:../../libs/red-button-machine",
+    "red-button-trainer-css": "file:../../libs/red-button-trainer-css/components/red-button-trainer",
     "reset-css": "file:../../libs/red-button-trainer-css/components/reset",
+    "response-time-css": "file:../../libs/red-button-trainer-css/components/response-time",
     "suitcss-utils-display": "^1.0.2"
   }
 }

@@ -16,6 +16,10 @@ suite("Initial", function () {
       responseTime: undefined,
       lights: [undefined, undefined],
     });
+    chai.assert.deepEqual(machine.initialState.actions, [
+      { type: action.updateButton },
+      { type: action.randomStart },
+    ]);
   });
 });
 

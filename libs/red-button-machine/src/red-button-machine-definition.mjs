@@ -7,6 +7,7 @@ const state = Object.freeze({
 });
 
 const action = Object.freeze({
+  randomStart: "randomStart",
   updateButton: "updateButton",
   sendError: "sendError",
   setLights: "setLights",
@@ -29,25 +30,55 @@ const context = Object.freeze({
 const stateDefinitions = {};
 
 stateDefinitions[state.up] = {
-  entry: [assign(Object.assign({}, context))],
+  entry: [
+    assign(Object.assign({}, context)),
+    action.updateButton,
+    action.randomStart,
+  ],
   on: {},
 };
 
 stateDefinitions[state.up].on[event.ButtonClicked] = [
   {
     target: state.down,
-    actions: [action.updateButton, action.sendError],
+    actions: [
+      assign({
+        responseTime: (context, event) => {
+          return -1;
+        },
+      }),
+      action.setLights,
+      action.updateButton,
+      action.sendError,
+    ],
   },
 ];
 stateDefinitions[state.up].on[event.Start] = [
   {
     target: state.ready,
-    actions: [action.setLights, action.startTimer],
+    actions: [
+      assign({
+        lights: (context, event) => {
+          return [false, true];
+        },
+        _start: (context, event) => {
+          return Date.now();
+        },
+      }),
+      action.setLights,
+      action.startTimer,
+    ],
   },
 ];
 
 stateDefinitions[state.down] = {
-  //entry: [assign(Object.assign({}, context))],
+  entry: [
+    assign({
+      lights: (context, event) => {
+        return [true, false];
+      },
+    }),
+  ],
   on: {},
 };
 
@@ -64,7 +95,16 @@ stateDefinitions[state.ready] = {
 stateDefinitions[state.ready].on[event.ButtonClicked] = [
   {
     target: state.down,
-    actions: [action.stopTimer, action.updateButton],
+    actions: [
+      assign({
+        responseTime: (context, event) => {
+          const now = Date.now();
+          return (now - context._start) / 1000;
+        },
+      }),
+      action.stopTimer,
+      action.updateButton,
+    ],
   },
 ];
 

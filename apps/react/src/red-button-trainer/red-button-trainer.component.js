@@ -1,15 +1,24 @@
-import { redButtonMachine, event, state } from "red-button-machine";
+import {
+  redButtonMachine,
+  redButtonFactory,
+  getRandomTimeout,
+  event,
+  action,
+  state,
+} from "red-button-machine";
 
+import "red-button-trainer-css";
 import RedButton from "../red-button/index.js";
 import Reset from "../reset/index.js";
 import LightArray from "../light-array/index.js";
+import ResponseTime from "../response-time/index.js";
 
 class RedButtonTrainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       value: redButtonMachine.initialState.value,
-      actions: [],
+      //actions: redButtonMachine.initialState.actions,
       context: redButtonMachine.initialState.context,
       /*
       id: undefined,
@@ -17,13 +26,60 @@ class RedButtonTrainer extends React.Component {
       lights: [undefined, undefined],
       */
     };
+    this.redButtonService = redButtonFactory();
+    this.redButtonService.subscribe(this.handleStateChange.bind(this));
+  }
+  componentDidMount() {
+    this.redButtonService.start();
+  }
+  componentWillUnmount() {
+    this.redButtonService.stop();
+  }
+
+  handleStateChange(state) {
+    console.log(state);
+    state.actions.forEach((_action) => {
+      switch (_action.type) {
+        case action.randomStart:
+          this.startRandomTimeout();
+          break;
+        case action.sendError:
+          window.clearTimeout(this._startTimeout);
+          break;
+        case action.startTimer:
+        case action.stopTimer:
+        case action.setLights:
+        case action.updateButton:
+          //this.setState({ value: state.value, context: state.context });
+          break;
+        default:
+          console.log(_action);
+          break;
+      }
+      this.setState({ value: state.value, context: state.context });
+    });
+  }
+
+  startRandomTimeout() {
+    //window.clearTimeout(this._startTimeout);
+    //this._startTimeout = window.setTimeout(() => {
+    //  this.redButtonService.send(event.Start);
+    //}, Math.round(3 * 1000 + Math.random() * (7 * 1000)));
+
+    const randomTimeout = getRandomTimeout();
+    randomTimeout.then(() => {
+      this.redButtonService.send(event.Start);
+    });
   }
 
   handleEvent(eventType) {
+    /*
     let nextState = redButtonMachine.transition(this.state.value, {
       type: eventType,
     });
     this.setState({ value: nextState.value });
+    */
+    this.redButtonService.send(eventType);
   }
 
   render() {
@@ -33,7 +89,9 @@ class RedButtonTrainer extends React.Component {
           <LightArray lights={this.state.context.lights}></LightArray>
         </div>
 
-        <div className="RedButtonTrainer-output"></div>
+        <div className="RedButtonTrainer-output">
+          <ResponseTime value={this.state.context.responseTime}></ResponseTime>
+        </div>
 
         <div className="RedButtonTrainer-console">
           <RedButton

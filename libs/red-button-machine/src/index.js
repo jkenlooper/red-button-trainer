@@ -1,4 +1,8 @@
-export { redButtonMachine } from "./red-button-machine.mjs";
+export {
+  redButtonMachine,
+  redButtonFactory,
+  getRandomTimeout,
+} from "./red-button-machine.mjs";
 export {
   redButtonMachineDefinition,
   state,
