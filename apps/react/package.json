@@ -41,15 +41,15 @@
   },
   "dependencies": {
     "@xstate/fsm": "^1.4.0",
-    "light-array-css": "file:../../libs/red-button-trainer-css/components/light-array",
-    "light-css": "file:../../libs/red-button-trainer-css/components/light",
+    "light-array-css": "file:../../libs/red-button-trainer-components/components/light-array",
+    "light-css": "file:../../libs/red-button-trainer-components/components/light",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "red-button-css": "file:../../libs/red-button-trainer-css/components/red-button",
+    "red-button-css": "file:../../libs/red-button-trainer-components/components/red-button",
     "red-button-machine": "file:../../libs/red-button-machine",
-    "red-button-trainer-css": "file:../../libs/red-button-trainer-css/components/red-button-trainer",
-    "reset-css": "file:../../libs/red-button-trainer-css/components/reset",
-    "response-time-css": "file:../../libs/red-button-trainer-css/components/response-time",
+    "red-button-trainer-css": "file:../../libs/red-button-trainer-components/components/red-button-trainer",
+    "reset-css": "file:../../libs/red-button-trainer-components/components/reset",
+    "response-time-css": "file:../../libs/red-button-trainer-components/components/response-time",
     "suitcss-utils-display": "^1.0.2"
   }
 }

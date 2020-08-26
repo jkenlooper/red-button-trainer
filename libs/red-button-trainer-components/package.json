@@ -1,9 +1,7 @@
 {
-  "name": "red-button-trainer-styles",
+  "name": "red-button-trainer-components",
   "version": "1.0.0",
   "description": "CSS for Red Button Trainer apps.",
-  "main": "index.css",
-  "style": "index.css",
   "dependencies": {
     "suitcss-utils-display": "^1.0.2"
   }
