@@ -13,7 +13,8 @@ stateDiagram-v2
   [*] --> up
   note right of [*] : <dl><dt>context</dt><dd>id {String}</dd><dd>responseTime {Int}</dd><dd>lights {Array of booleans}</dd></dl>
   note left of up : <ul><li>entry / set default context</li><li>entry / updateButton</li><li>entry / randomStart</li></ul>
-  up --> down : <div>ButtonClicked</div> <ul><li>do / updateButton</li><li>do / sendError</li></ul>
+  up --> down : <div>ButtonClicked</div> <ul><li>do / set responseTime context</li><li>do / setLights</li><li>do / updateButton</li><li>do / sendError</li></ul>
   down --> up : <div>Reset</div> <ul><li>do / updateButton</li>
-  up --> ready : <div>Start</div> <ul><li>do / setLights</li><li>do / startTimer</li></ul>
-  ready --> down : <div>ButtonClicked</div> <ul><li>do / stopTimer</li><li>do / updateButton</li></ul>
+  up --> ready : <div>Start</div> <ul><li>do / set lights context</li><li>do / setLights</li><li>do / startTimer</li></ul>
+  note right of down : <ul><li>entry / set lights context</li></ul>
+  ready --> down : <div>ButtonClicked</div> <ul><li>do / set responseTime context</li><li>do / stopTimer</li><li>do / updateButton</li></ul>
