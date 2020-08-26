@@ -6,6 +6,8 @@ SHELL := bash
 .DELETE_ON_ERROR:
 .SUFFIXES:
 
+objects := .red-button-machine
+
 # For debugging what is set in variables
 inspect.%:
 	@echo $($*)
@@ -15,27 +17,45 @@ inspect.%:
 FORCE:
 
 .PHONY: all
-all: apps/react/dist/app.bundle.js
+all: $(objects) libs/red-button-trainer-components/package-lock.json apps/react/dist/app.bundle.js
 
 .PHONY: test
-test: libs/red-button-machine/dist/red-button-machine.bundle.js
+test: test-red-button-machine
+
+.PHONY: test-red-button-machine
+test-red-button-machine: .red-button-machine
 	(cd libs/red-button-machine/; npm test;)
 
-libs/red-button-machine/package-lock.json: libs/red-button-machine/package.json
+.red-button-machine : libs/red-button-machine/dist/red-button-machine.bundle.js libs/red-button-machine/red-button-machine.state-diagram.svg
+	touch $@
+
+libs/red-button-machine/red-button-machine.state-diagram.svg: libs/red-button-machine/red-button-machine.state-diagram.mmd libs/red-button-machine/node_modules
+	(cd libs/red-button-machine/; npm run mmdc -- --input red-button-machine.state-diagram.mmd --output red-button-machine.state-diagram.svg -p puppeteer.config.json)
+
+objects += libs/red-button-machine/node_modules
+libs/red-button-machine/node_modules: libs/red-button-machine/package-lock.json libs/red-button-machine/package.json
 	(cd libs/red-button-machine/; npm install;)
 	touch $@
 
-libs/red-button-machine/dist/red-button-machine.bundle.js: libs/red-button-machine/package-lock.json $(shell find libs/red-button-machine/src/ -type f -print)
-	(cd libs/red-button-machine/; npm run build)
+objects += libs/red-button-machine/dist/red-button-machine.bundle.js
+libs/red-button-machine/dist/red-button-machine.bundle.js: libs/red-button-machine/node_modules $(shell find libs/red-button-machine/src/ -type f -print)
+	(cd libs/red-button-machine/; npm run build;)
 	touch $@
 
+libs/red-button-trainer-components/package-lock.json: libs/red-button-trainer-components/package.json
+	(cd libs/red-button-trainer-components/; npm install;)
 
 apps/react/package-lock.json: apps/react/package.json
 	(cd apps/react/; npm install)
 	touch $@
 
-apps/react/dist/app.bundle.js: libs/red-button-machine/dist/red-button-machine.bundle.js apps/react/package-lock.json $(shell find apps/react/src/ -type f -print)
+apps/react/dist/app.bundle.js:  apps/react/package-lock.json $(shell find apps/react/src/ -type f -print)
 	(cd apps/react/; npm run build)
 	touch $@
 
+# Remove any created files in the src directory which were created by the
+# `make all` recipe.
+.PHONY: clean
+clean:
+	echo $(objects) | xargs rm -rf
 

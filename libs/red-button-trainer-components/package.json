@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "CSS for Red Button Trainer apps.",
   "dependencies": {
-    "suitcss-utils-display": "^1.0.2"
+    "suitcss-utils-display": "^1.0.2",
+    "utility-redbutton-css": "file:../utility-redbutton-css"
   }
 }

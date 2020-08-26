@@ -1,10 +1,11 @@
 # Red Button Machine
 
 <!--
-See notes in src/red-button-machine.mmd source file for diagram.svg.
+See notes in red-button-machine.state-diagram.mmd source file for
+red-button-machine.state-diagram.svg.
 -->
 
-![Generated State Diagram](diagram.svg)
+![Generated State Diagram for Red Button Finite State Machine](red-button-machine.state-diagram.svg)
 
 ## Development
 

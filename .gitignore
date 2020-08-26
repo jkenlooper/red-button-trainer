@@ -7,5 +7,8 @@
 dist/
 node_modules/
 
+# objects created by Makefile
+.red-button-machine
+
 # Temporary ignore of package-lock.json until first release
 package-lock.json

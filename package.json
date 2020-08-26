@@ -4,6 +4,7 @@
   "description": "Production grade red button training for business critical applications.",
   "private": true,
   "scripts": {
+    "test": "make test",
     "start": "serve .",
     "postinstall": "make"
   },
