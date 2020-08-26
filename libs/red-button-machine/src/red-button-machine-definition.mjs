@@ -85,7 +85,7 @@ stateDefinitions[state.down] = {
 stateDefinitions[state.down].on[event.Reset] = [
   {
     target: state.up,
-    actions: [action.updateButton],
+    actions: [],
   },
 ];
 

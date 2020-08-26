@@ -16,10 +16,19 @@ suite("Initial", function () {
       responseTime: undefined,
       lights: [undefined, undefined],
     });
-    chai.assert.deepEqual(machine.initialState.actions, [
-      { type: action.updateButton },
-      { type: action.randomStart },
-    ]);
+    chai.assert.deepEqual(
+      JSON.parse(JSON.stringify(machine.initialState.actions)),
+      JSON.parse(
+        JSON.stringify([
+          {
+            type: "xstate.assign",
+            assignment: { lights: [undefined, undefined] },
+          },
+          { type: action.updateButton },
+          { type: action.randomStart },
+        ])
+      )
+    );
   });
 });
 
@@ -28,6 +37,7 @@ suite("Event ButtonClicked", function () {
     let nextState = machine.transition(state.up, event.ButtonClicked);
     chai.assert.equal(nextState.value, state.down);
     chai.assert.deepEqual(nextState.actions, [
+      { type: action.setLights },
       { type: action.updateButton },
       { type: action.sendError },
     ]);
@@ -65,7 +75,10 @@ suite("Event Reset", function () {
   test("When state is down; transition to up.", function () {
     let nextState = machine.transition(state.down, event.Reset);
     chai.assert.equal(nextState.value, state.up);
-    chai.assert.deepEqual(nextState.actions, [{ type: action.updateButton }]);
+    chai.assert.deepEqual(nextState.actions, [
+      { type: action.updateButton },
+      { type: action.randomStart },
+    ]);
   });
 });
 

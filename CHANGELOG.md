@@ -23,6 +23,14 @@ Types of changes
 
 ## [Unreleased] - ...
 
+### Added
+
+- Initial working version built in React.
+
+### Changed
+
+- State machine includes ready state and has a timer.
+
 ## [0.0.2] - 2020-08-20
 
 Unit test setup and integration.
