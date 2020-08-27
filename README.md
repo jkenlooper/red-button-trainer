@@ -24,6 +24,9 @@ All implementations will share some common code which is in the `libs/` director
 
 ## Development
 
+Requires node.js 14, npm, and make to run the build scripts. It is recommended
+to use nvm to select the right node.js version.
+
 ```bash
 npm install;
 npm start;

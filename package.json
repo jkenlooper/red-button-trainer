@@ -42,7 +42,6 @@
     "*.{mjs,js,css,json,md,html}": [
       "prettier --write"
     ],
-    "off*.{mjs,js}": "eslint --cache --fix --quiet",
     "*.css": "stylelint --fix"
   },
   "dependencies": {
