@@ -16,7 +16,7 @@
     "debug": "npm run rollup",
     "watch": "npm run rollup -- --watch",
     "build": "NODE_ENV=production npm run rollup",
-    "postinstall": "npm run build"
+    "postinstall": "mkdir -p dist; cp node_modules/utility-redbutton-css/utility-redbutton.css dist/; npm run build"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",

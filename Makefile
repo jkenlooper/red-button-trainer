@@ -6,7 +6,7 @@ SHELL := bash
 .DELETE_ON_ERROR:
 .SUFFIXES:
 
-objects := .red-button-machine
+objects := .index-page .red-button-machine .red-button-trainer-components
 
 # For debugging what is set in variables
 inspect.%:
@@ -26,14 +26,28 @@ test: test-red-button-machine
 test-red-button-machine: .red-button-machine
 	(cd libs/red-button-machine/; npm test;)
 
-.red-button-machine : libs/red-button-machine/dist/red-button-machine.bundle.js libs/red-button-machine/red-button-machine.state-diagram.svg
+.index-page: dist/utility-redbutton.css
+
+objects += node_modules
+dist/utility-redbutton.css: node_modules
+	mkdir -p dist;
+	cp node_modules/utility-redbutton-css/utility-redbutton.css $@;
+
+.red-button-trainer-components: libs/red-button-trainer-components/dist
 	touch $@
 
-libs/red-button-machine/red-button-machine.state-diagram.svg: libs/red-button-machine/red-button-machine.state-diagram.mmd libs/red-button-machine/node_modules
+libs/red-button-trainer-components/dist: libs/red-button-trainer-components/package.json $(shell find libs/red-button-trainer-components/components/ -type f -print)
+	(cd libs/red-button-trainer-components/; npm install;)
+	touch $@
+
+.red-button-machine: libs/red-button-machine/dist/red-button-machine.bundle.js libs/red-button-machine/red-button-machine.state-diagram.svg
+	touch $@
+
+libs/red-button-machine/red-button-machine.state-diagram.svg: libs/red-button-machine/red-button-machine.state-diagram.mmd
 	(cd libs/red-button-machine/; npm run mmdc -- --input red-button-machine.state-diagram.mmd --output red-button-machine.state-diagram.svg -p puppeteer.config.json)
 
 objects += libs/red-button-machine/node_modules
-libs/red-button-machine/node_modules: libs/red-button-machine/package-lock.json libs/red-button-machine/package.json
+libs/red-button-machine/node_modules: libs/red-button-machine/package.json
 	(cd libs/red-button-machine/; npm install;)
 	touch $@
 

@@ -9,6 +9,8 @@ node_modules/
 
 # objects created by Makefile
 .red-button-machine
+.index-page
+.red-button-trainer-components
 
 # Temporary ignore of package-lock.json until first release
 package-lock.json

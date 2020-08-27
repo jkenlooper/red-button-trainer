@@ -2,6 +2,9 @@
   "name": "red-button-trainer-components",
   "version": "1.0.0",
   "description": "CSS for Red Button Trainer apps.",
+  "scripts": {
+    "postinstall": "./_postinstall.sh"
+  },
   "dependencies": {
     "suitcss-utils-display": "^1.0.2",
     "utility-redbutton-css": "file:../utility-redbutton-css"
