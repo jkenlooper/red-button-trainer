@@ -14,3 +14,9 @@ node_modules/
 
 # Temporary ignore of package-lock.json until first release
 package-lock.json
+
+
+## gh-pages branch only ##
+# Include these on the gh-pages since they will be part of the deployment to
+# GitHub Pages.
+!dist/
