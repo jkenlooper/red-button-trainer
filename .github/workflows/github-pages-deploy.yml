@@ -1,0 +1,28 @@
+name: GitHub Pages Deploy
+
+on:
+  push:
+    branches: [ production ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Install
+        run: npm install
+
+      - name: Commit to gh-pages branch
+        run: |
+          git checkout gh-pages;
+          git add .;
+          git commit -m 'Publish';
+          git push origin;
+
