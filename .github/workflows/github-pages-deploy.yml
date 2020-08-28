@@ -26,8 +26,7 @@ jobs:
 
       - name: Commit
         # Only commit if there are changes.
-        if: |
-          "$(git status --porcelain)" != ''
+        if: ${{ "$(git status --porcelain)" != '' }}
         run: |
           git add .;
           git commit -m 'Publish';
