@@ -17,14 +17,10 @@ jobs:
           node-version: 14.x
 
       - name: Install
-        run: |
-          git checkout -b gh-pages origin/gh-pages;
-          git merge origin/production;
-          npm install;
+        run: npm install
 
-      - name: Commit to gh-pages branch
-        run: |
-          git add .;
-          git commit -m 'Publish';
-          git push origin;
-
+      - uses: EndBug/add-and-commit@v4
+        with:
+          ref: "gh-pages"
+          message: "Publish"
+          add: "."
