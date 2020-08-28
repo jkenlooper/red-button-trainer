@@ -11,6 +11,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Set git config
         run: |
           git config user.name "$(git log -n1 --pretty=format:%an)"
           git config user.email "$(git log -n1 --pretty=format:%ae)"
