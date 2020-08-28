@@ -1,7 +1,4 @@
-import {
-  createMachine,
-  interpret,
-} from "../node_modules/@xstate/fsm/es/index.js";
+import { createMachine, interpret } from "../dist/xstate-fsm-es.js";
 
 import { redButtonMachineDefinition } from "./red-button-machine-definition.mjs";
 
