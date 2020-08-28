@@ -21,6 +21,8 @@ jobs:
 
       - name: Commit to gh-pages branch
         run: |
+          git config user.name $(git log -n1 --pretty=format:%an)
+          git config user.email $(git log -n1 --pretty=format:%ae)
           git add .;
           git commit -m 'Publish';
           git push origin;
