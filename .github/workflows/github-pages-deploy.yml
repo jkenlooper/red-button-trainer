@@ -24,9 +24,13 @@ jobs:
       - name: Install
         run: npm install
 
+      - name: Has Changes
+        run: |
+          test "$(git status --porcelain)" != ''
+
       - name: Commit
         # Only commit if there are changes.
-        if: ${{ "$(git status --porcelain)" != '' }}
+        if: ${{ success() }}
         run: |
           git add .;
           git commit -m 'Publish';
