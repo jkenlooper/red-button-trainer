@@ -23,4 +23,5 @@ jobs:
         with:
           ref: "gh-pages"
           message: "Publish"
-          add: "."
+          add: $(find . -name dist/ \! -path '*node_modules/*' -type d)
+          force: true
