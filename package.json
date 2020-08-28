@@ -1,6 +1,6 @@
 {
   "name": "red-button-trainer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Production grade red button training for business critical applications.",
   "private": true,
   "scripts": {
