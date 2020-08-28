@@ -2,7 +2,7 @@ name: GitHub Pages Deploy
 
 on:
   push:
-    branches: [ production ]
+    branches: [ gh-pages ]
 
 jobs:
   build:
@@ -17,10 +17,7 @@ jobs:
           node-version: 14.x
 
       - name: Install
-        run: |
-          git checkout -b gh-pages origin/gh-pages;
-          git merge origin/production;
-          npm install;
+        run: npm install
 
       - name: Commit to gh-pages branch
         run: |
