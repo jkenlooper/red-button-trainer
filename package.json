@@ -45,6 +45,7 @@
     "*.css": "stylelint --fix"
   },
   "dependencies": {
+    "@wokwi/elements": "^0.27.1",
     "serve": "^11.3.2",
     "utility-redbutton-css": "file:libs/utility-redbutton-css"
   }

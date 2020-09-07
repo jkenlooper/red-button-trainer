@@ -5,17 +5,10 @@
     <title>Red Button Trainer CSS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="page.css" />
-    <link
-      rel="stylesheet"
-      href="components/red-button-trainer/red-button-trainer.css"
-    />
-    <link rel="stylesheet" href="components/light-array/light-array.css" />
-    <link rel="stylesheet" href="components/light/light.css" />
-    <link rel="stylesheet" href="components/response-time/response-time.css" />
-    <link rel="stylesheet" href="components/red-button/red-button.css" />
-    <link rel="stylesheet" href="components/reset/reset.css" />
-    <link rel="stylesheet" href="dist/display.css" />
-    <link rel="stylesheet" href="dist/utility-redbutton.css" />
+    <link rel="stylesheet" href="dist/app.bundle.css" />
+
+    <!-- Polyfills only needed for Firefox and Edge. -->
+    <script src="dist/webcomponentsjs/webcomponents-loader.js"></script>
   </head>
 
   <body>
@@ -39,14 +32,22 @@
           <div class="LightArray">
             <ul class="LightArray-list" aria-live="polite">
               <li class="LightArray-listItem">
-                <div class="Light Light--red">
-                  <span class="u-hiddenVisually">Red light is off.</span>
-                </div>
+                <span class="u-hiddenVisually">Red light l1 is off.</span>
+                <wokwi-led
+                  aria-hidden="true"
+                  value=""
+                  label="l1"
+                  color="red"
+                ></wokwi-led>
               </li>
               <li class="LightArray-listItem">
-                <div class="Light Light--green">
-                  <span class="u-hiddenVisually">Green light is off.</span>
-                </div>
+                <span class="u-hiddenVisually">Green light l2 is off.</span>
+                <wokwi-led
+                  aria-hidden="true"
+                  value=""
+                  label="l2"
+                  color="green"
+                ></wokwi-led>
               </li>
             </ul>
           </div>
@@ -59,21 +60,24 @@
               for="red-button"
               class="ResponseTime-output"
             >
-              <span class="u-block">--<br />&nbsp;</span>
+              <wokwi-7segment
+                digits="4"
+                color="yellow"
+                pins="extend"
+                offcolor="#222"
+                values="[
+                0,0,0,0,0,0,1,1,
+                0,0,0,0,0,0,1,0,
+                0,0,0,0,0,0,1,0,
+                0,0,0,0,0,0,1,0
+                ]"
+              ></wokwi-7segment>
             </output>
           </div>
         </div>
 
         <div class="RedButtonTrainer-console">
-          <div class="RedButton">
-            <button type="button" id="red-button" class="RedButton-button">
-              Push
-            </button>
-          </div>
-
-          <div class="Reset">
-            <button disabled type="button" class="Reset-button">Reset</button>
-          </div>
+          <wokwi-pushbutton color="red"></wokwi-pushbutton>
         </div>
       </div>
     </section>
@@ -87,14 +91,22 @@
           <div class="LightArray">
             <ul class="LightArray-list" aria-live="polite">
               <li class="LightArray-listItem">
-                <div class="Light Light--red">
-                  <span class="u-hiddenVisually">Red light is off.</span>
-                </div>
+                <span class="u-hiddenVisually">Red light l1 is off.</span>
+                <wokwi-led
+                  aria-hidden="true"
+                  value=""
+                  label="l1"
+                  color="red"
+                ></wokwi-led>
               </li>
               <li class="LightArray-listItem">
-                <div class="Light Light--green is-active">
-                  <span class="u-hiddenVisually">Green light is on.</span>
-                </div>
+                <span class="u-hiddenVisually">Green light l2 is on.</span>
+                <wokwi-led
+                  aria-hidden="true"
+                  value="1"
+                  label="l2"
+                  color="green"
+                ></wokwi-led>
               </li>
             </ul>
           </div>
@@ -107,21 +119,24 @@
               for="red-button"
               class="ResponseTime-output"
             >
-              <span class="u-block">--<br />&nbsp;</span>
+              <wokwi-7segment
+                digits="4"
+                color="yellow"
+                pins="extend"
+                offcolor="#222"
+                values="[
+                0,0,0,0,0,0,1,1,
+                0,0,0,0,0,0,1,0,
+                0,0,0,0,0,0,1,0,
+                0,0,0,0,0,0,1,0
+                ]"
+              ></wokwi-7segment>
             </output>
           </div>
         </div>
 
         <div class="RedButtonTrainer-console">
-          <div class="RedButton">
-            <button type="button" id="red-button" class="RedButton-button">
-              Push
-            </button>
-          </div>
-
-          <div class="Reset">
-            <button disabled type="button" class="Reset-button">Reset</button>
-          </div>
+          <wokwi-pushbutton color="red"></wokwi-pushbutton>
         </div>
       </div>
     </section>
@@ -138,14 +153,22 @@
           <div class="LightArray">
             <ul class="LightArray-list" aria-live="polite">
               <li class="LightArray-listItem">
-                <div class="Light Light--red is-active">
-                  <span class="u-hiddenVisually">Red light is on.</span>
-                </div>
+                <span class="u-hiddenVisually">Red light l1 is on.</span>
+                <wokwi-led
+                  aria-hidden="true"
+                  value="1"
+                  label="l1"
+                  color="red"
+                ></wokwi-led>
               </li>
               <li class="LightArray-listItem">
-                <div class="Light Light--green">
-                  <span class="u-hiddenVisually">Green light is off.</span>
-                </div>
+                <span class="u-hiddenVisually">Green light l2 is off.</span>
+                <wokwi-led
+                  aria-hidden="true"
+                  value=""
+                  label="l2"
+                  color="green"
+                ></wokwi-led>
               </li>
             </ul>
           </div>
@@ -153,33 +176,30 @@
 
         <div class="RedButtonTrainer-output">
           <div class="ResponseTime">
-            <output
-              name="response-time"
-              for="red-button"
-              class="ResponseTime-output"
-            >
-              <time class="u-block" datetime="PT1.92S">1.92<br />Seconds</time>
+            <output name="response-time" for="red-button">
+              <time class="ResponseTime-output" datetime="PT1.92S">
+                <wokwi-7segment
+                  digits="4"
+                  color="yellow"
+                  pins="extend"
+                  offcolor="#222"
+                  values="[
+                  0,1,1,0,0,0,0,1,
+                  1,1,1,0,0,1,1,0,
+                  1,1,0,1,1,0,1,0,
+                  1,1,1,1,1,1,0,0
+                  ]"
+                ></wokwi-7segment>
+              </time>
             </output>
           </div>
         </div>
 
         <div class="RedButtonTrainer-console">
-          <div class="RedButton">
-            <button
-              type="button"
-              disabled
-              id="red-button"
-              class="RedButton-button"
-            >
-              Push
-            </button>
-          </div>
-
-          <div class="Reset">
-            <button type="button" class="Reset-button">Reset</button>
-          </div>
+          <wokwi-pushbutton color="red"></wokwi-pushbutton>
         </div>
       </div>
     </section>
+    <script type="module" src="dist/app.bundle.js"></script>
   </body>
 </html>
