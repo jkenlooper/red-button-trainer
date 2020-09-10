@@ -1,25 +1,23 @@
 /// <reference types="react" />
 //import React from "react";
 
-import "light-css";
-
 class Light extends React.Component {
   constructor(props) {
     super(props);
-    this.cssVariants = {
-      red: "Light--red",
-      green: "Light--green",
-    };
   }
   render() {
-    const lightClassName = `Light ${this.cssVariants[this.props.color]} ${
-      this.props.value && "is-active"
-    }`;
     return (
-      <div className={lightClassName}>
+      <div>
         <span className="u-hiddenVisually">
-          {this.props.color} light is {this.props.value ? "on" : "off"}.
+          {this.props.color} light {this.props.label} is{" "}
+          {this.props.value ? "on" : "off"}.
         </span>
+        <wokwi-led
+          aria-hidden="true"
+          value={this.props.value ? "1" : ""}
+          label={this.props.label}
+          color={this.props.color}
+        ></wokwi-led>
       </div>
     );
   }

@@ -2,6 +2,7 @@
 //import React from "react";
 
 import "response-time-css";
+import { digitTo7Segment } from "digit-to-7segment";
 
 class ResponseTime extends React.Component {
   render() {
@@ -16,31 +17,66 @@ class ResponseTime extends React.Component {
     })();
     const outputContent = (() => {
       let el;
+      let values;
       switch (status) {
         case "waiting":
+          values = [].concat(
+            digitTo7Segment("-", true),
+            digitTo7Segment("-", false),
+            digitTo7Segment("-", false),
+            digitTo7Segment("-", false)
+          );
           el = (
-            <span className="u-block">
-              --
-              <br />
-              &nbsp;
-            </span>
+            <wokwi-7segment
+              digits={values.length / 8}
+              color="yellow"
+              pins="extend"
+              offcolor="#222"
+              values={JSON.stringify(values)}
+            ></wokwi-7segment>
           );
           break;
         case "error":
+          values = [].concat(
+            digitTo7Segment("f"),
+            digitTo7Segment("a"),
+            digitTo7Segment("i"),
+            digitTo7Segment("l")
+          );
           el = (
-            <span className="u-block">
-              --
-              <br />
-              Fail
-            </span>
+            <wokwi-7segment
+              digits={values.length / 8}
+              color="yellow"
+              pins="extend"
+              offcolor="#222"
+              values={JSON.stringify(values)}
+            ></wokwi-7segment>
           );
           break;
         case "done":
+          values = [].concat(
+            ...this.props.value.split("").reduceRight(
+              (acc, char) => {
+                if (char === ".") {
+                  acc.dec = true;
+                  return acc;
+                }
+                acc.segments.unshift(digitTo7Segment(char, acc.dec));
+                acc.dec = false;
+                return acc;
+              },
+              { dec: false, segments: [] }
+            ).segments
+          );
           el = (
-            <time class="u-block" datetime="PT1.92S">
-              {this.props.value}
-              <br />
-              Seconds
+            <time class="u-block" datetime={`PT${this.props.value}S`}>
+              <wokwi-7segment
+                digits={values.length / 8}
+                color="yellow"
+                pins="extend"
+                offcolor="#222"
+                values={JSON.stringify(values)}
+              ></wokwi-7segment>
             </time>
           );
           break;
