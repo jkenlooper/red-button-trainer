@@ -17,3 +17,6 @@ touch dist/app.bundle.css
 cp node_modules/react/umd/react.production.min.js \
   node_modules/react-dom/umd/react-dom.production.min.js \
   dist/
+
+cp -r node_modules/@webcomponents/webcomponentsjs \
+  dist/;

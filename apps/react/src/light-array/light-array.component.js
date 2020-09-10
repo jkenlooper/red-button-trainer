@@ -23,6 +23,7 @@ class LightArray extends React.Component {
       .reduce((acc, lightValue, index) => {
         const light = {
           value: lightValue,
+          label: `l${index + 1}`,
           color: this.state.lightBulbs[index].color,
         };
         acc.push(light);
@@ -31,7 +32,11 @@ class LightArray extends React.Component {
       .map((light) => {
         return (
           <li className="LightArray-listItem">
-            <Light value={light.value} color={light.color}></Light>
+            <Light
+              label={light.label}
+              value={light.value}
+              color={light.color}
+            ></Light>
           </li>
         );
       });

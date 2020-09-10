@@ -17,7 +17,6 @@ const action = Object.freeze({
 
 const event = Object.freeze({
   ButtonClicked: "ButtonClicked",
-  Reset: "Reset",
   Start: "Start",
 });
 
@@ -82,7 +81,7 @@ stateDefinitions[state.down] = {
   on: {},
 };
 
-stateDefinitions[state.down].on[event.Reset] = [
+stateDefinitions[state.down].on[event.ButtonClicked] = [
   {
     target: state.up,
     actions: [],
@@ -98,8 +97,20 @@ stateDefinitions[state.ready].on[event.ButtonClicked] = [
     actions: [
       assign({
         responseTime: (context, event) => {
-          const now = Date.now();
-          return (now - context._start) / 1000;
+          /* Return a rounded time that will fit in 4 characters (not counting
+           * the decimal point). This is so the 7 segment component will be able
+           * to show the value.
+           */
+          const now = context._now || Date.now();
+          const actual = Math.min(9999, (now - context._start) / 1000);
+          const wholeSeconds = actual - (actual % 1);
+          const zeroPaddedFraction =
+            ((actual % 1).toString() + ".0").split(".")[1] + "000";
+          const rounded = `${wholeSeconds.toString()}.${zeroPaddedFraction}`.slice(
+            0,
+            actual > 1000 ? 4 : 5
+          );
+          return rounded;
         },
       }),
       action.stopTimer,

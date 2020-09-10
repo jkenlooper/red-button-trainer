@@ -21,11 +21,23 @@ Types of changes
 ## [Unreleased] - ...
 -->
 
-## [Unreleased] - ...
+## [0.0.4] - 2020-09-10
+
+### Changed
+
+- Use wokwi elements for displaying lights, button, and result value.
+
+## [0.0.3] - 2020-08-28
+
+Experimenting with GitHub Actions to commit generated dist directories to
+gh-pages branch. This is now available at
+[red-button-trainer.weboftomorrow.com](http://red-button-trainer.weboftomorrow.com/)
+after setting the CNAME.
 
 ### Added
 
 - Initial working version built in React.
+- GitHub Actions workflow
 
 ### Changed
 

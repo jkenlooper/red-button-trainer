@@ -1,6 +1,6 @@
 {
   "name": "red-button-trainer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Production grade red button training for business critical applications.",
   "private": true,
   "scripts": {
@@ -45,6 +45,7 @@
     "*.css": "stylelint --fix"
   },
   "dependencies": {
+    "@wokwi/elements": "^0.27.1",
     "serve": "^11.3.2",
     "utility-redbutton-css": "file:libs/utility-redbutton-css"
   }

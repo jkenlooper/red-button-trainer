@@ -40,9 +40,13 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.4.4",
+    "@wokwi/elements": "^0.27.1",
     "@xstate/fsm": "^1.4.0",
+    "digit-to-7segment": "file:../../libs/digit-to-7segment",
     "light-array-css": "file:../../libs/red-button-trainer-components/components/light-array",
-    "light-css": "file:../../libs/red-button-trainer-components/components/light",
+    "lit-element": "^2.4.0",
+    "lit-html": "^1.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "red-button-css": "file:../../libs/red-button-trainer-components/components/red-button",

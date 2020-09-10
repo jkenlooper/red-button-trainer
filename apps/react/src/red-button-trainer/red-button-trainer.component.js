@@ -37,7 +37,6 @@ class RedButtonTrainer extends React.Component {
   }
 
   handleStateChange(state) {
-    console.log(state);
     state.actions.forEach((_action) => {
       switch (_action.type) {
         case action.randomStart:
@@ -53,7 +52,6 @@ class RedButtonTrainer extends React.Component {
           //this.setState({ value: state.value, context: state.context });
           break;
         default:
-          console.log(_action);
           break;
       }
       this.setState({ value: state.value, context: state.context });
@@ -94,16 +92,7 @@ class RedButtonTrainer extends React.Component {
         </div>
 
         <div className="RedButtonTrainer-console">
-          <RedButton
-            label="Halt"
-            disabled={this.state.value === state.down}
-            onClick={() => this.handleEvent(event.ButtonClicked)}
-          />
-
-          <Reset
-            disabled={this.state.value !== state.down}
-            onClick={() => this.handleEvent(event.Reset)}
-          ></Reset>
+          <RedButton onClick={() => this.handleEvent(event.ButtonClicked)} />
         </div>
       </div>
     );
