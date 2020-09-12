@@ -4,6 +4,7 @@ const state = Object.freeze({
   up: "up",
   ready: "ready",
   down: "down",
+  fail: "fail",
 });
 
 const action = Object.freeze({
@@ -16,8 +17,8 @@ const action = Object.freeze({
 });
 
 const event = Object.freeze({
-  ButtonClicked: "ButtonClicked",
-  Start: "Start",
+  BUTTON_CLICKED: "BUTTON_CLICKED",
+  START: "START",
 });
 
 const context = Object.freeze({
@@ -37,9 +38,9 @@ stateDefinitions[state.up] = {
   on: {},
 };
 
-stateDefinitions[state.up].on[event.ButtonClicked] = [
+stateDefinitions[state.up].on[event.BUTTON_CLICKED] = [
   {
-    target: state.down,
+    target: state.fail,
     actions: [
       assign({
         responseTime: (context, event) => {
@@ -52,7 +53,7 @@ stateDefinitions[state.up].on[event.ButtonClicked] = [
     ],
   },
 ];
-stateDefinitions[state.up].on[event.Start] = [
+stateDefinitions[state.up].on[event.START] = [
   {
     target: state.ready,
     actions: [
@@ -70,6 +71,10 @@ stateDefinitions[state.up].on[event.Start] = [
   },
 ];
 
+stateDefinitions[state.fail] = {
+  type: "final",
+};
+
 stateDefinitions[state.down] = {
   entry: [
     assign({
@@ -81,7 +86,7 @@ stateDefinitions[state.down] = {
   on: {},
 };
 
-stateDefinitions[state.down].on[event.ButtonClicked] = [
+stateDefinitions[state.down].on[event.BUTTON_CLICKED] = [
   {
     target: state.up,
     actions: [],
@@ -91,7 +96,7 @@ stateDefinitions[state.down].on[event.ButtonClicked] = [
 stateDefinitions[state.ready] = {
   on: {},
 };
-stateDefinitions[state.ready].on[event.ButtonClicked] = [
+stateDefinitions[state.ready].on[event.BUTTON_CLICKED] = [
   {
     target: state.down,
     actions: [
