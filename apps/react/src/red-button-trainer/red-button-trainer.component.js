@@ -77,6 +77,9 @@ class RedButtonTrainer extends React.Component {
     });
     this.setState({ value: nextState.value });
     */
+    if (this.state.value === state.fail) {
+      window.location.reload();
+    }
     this.redButtonService.send(eventType);
   }
 

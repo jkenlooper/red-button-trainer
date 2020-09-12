@@ -4,6 +4,7 @@ const state = Object.freeze({
   up: "up",
   ready: "ready",
   down: "down",
+  fail: "fail",
 });
 
 const action = Object.freeze({
@@ -39,7 +40,7 @@ stateDefinitions[state.up] = {
 
 stateDefinitions[state.up].on[event.BUTTON_CLICKED] = [
   {
-    target: state.down,
+    target: state.fail,
     actions: [
       assign({
         responseTime: (context, event) => {
@@ -69,6 +70,10 @@ stateDefinitions[state.up].on[event.START] = [
     ],
   },
 ];
+
+stateDefinitions[state.fail] = {
+  type: "final",
+};
 
 stateDefinitions[state.down] = {
   entry: [

@@ -33,9 +33,9 @@ suite("Initial", function () {
 });
 
 suite("Event BUTTON_CLICKED", function () {
-  test("When state is up; transition to down.", function () {
+  test("When state is up; transition to fail.", function () {
     let nextState = machine.transition(state.up, event.BUTTON_CLICKED);
-    chai.assert.equal(nextState.value, state.down);
+    chai.assert.equal(nextState.value, state.fail);
     chai.assert.deepEqual(nextState.actions, [
       { type: action.setLights },
       { type: action.updateButton },
