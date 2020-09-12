@@ -21,6 +21,12 @@ Types of changes
 ## [Unreleased] - ...
 -->
 
+## [0.0.5] - 2020-09-12
+
+### Changed
+
+- Add fail state to avoid multiple successive button pushes.
+
 ## [0.0.4] - 2020-09-10
 
 ### Changed
