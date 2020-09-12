@@ -61,12 +61,12 @@ class RedButtonTrainer extends React.Component {
   startRandomTimeout() {
     //window.clearTimeout(this._startTimeout);
     //this._startTimeout = window.setTimeout(() => {
-    //  this.redButtonService.send(event.Start);
+    //  this.redButtonService.send(event.START);
     //}, Math.round(3 * 1000 + Math.random() * (7 * 1000)));
 
     const randomTimeout = getRandomTimeout();
     randomTimeout.then(() => {
-      this.redButtonService.send(event.Start);
+      this.redButtonService.send(event.START);
     });
   }
 
@@ -92,7 +92,7 @@ class RedButtonTrainer extends React.Component {
         </div>
 
         <div className="RedButtonTrainer-console">
-          <RedButton onClick={() => this.handleEvent(event.ButtonClicked)} />
+          <RedButton onClick={() => this.handleEvent(event.BUTTON_CLICKED)} />
         </div>
       </div>
     );

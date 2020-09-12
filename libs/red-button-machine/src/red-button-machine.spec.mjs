@@ -32,9 +32,9 @@ suite("Initial", function () {
   });
 });
 
-suite("Event ButtonClicked", function () {
+suite("Event BUTTON_CLICKED", function () {
   test("When state is up; transition to down.", function () {
-    let nextState = machine.transition(state.up, event.ButtonClicked);
+    let nextState = machine.transition(state.up, event.BUTTON_CLICKED);
     chai.assert.equal(nextState.value, state.down);
     chai.assert.deepEqual(nextState.actions, [
       { type: action.setLights },
@@ -45,7 +45,7 @@ suite("Event ButtonClicked", function () {
   });
 
   test("When state is ready; transition to down.", function () {
-    let nextState = machine.transition(state.ready, event.ButtonClicked);
+    let nextState = machine.transition(state.ready, event.BUTTON_CLICKED);
     chai.assert.equal(nextState.value, state.down);
     chai.assert.deepEqual(nextState.actions, [
       { type: action.stopTimer },
@@ -57,40 +57,40 @@ suite("Event ButtonClicked", function () {
     const now = Date.now();
     machine.initialState.context._now = now;
     machine.initialState.context._start = now - 1920;
-    let nextState = machine.transition(state.ready, event.ButtonClicked);
+    let nextState = machine.transition(state.ready, event.BUTTON_CLICKED);
     chai.assert.equal(nextState.context.responseTime, "1.919");
   });
   test("Response time for 192.245 seconds is '192.2'", function () {
     const now = Date.now();
     machine.initialState.context._now = now;
     machine.initialState.context._start = now - 192245;
-    let nextState = machine.transition(state.ready, event.ButtonClicked);
+    let nextState = machine.transition(state.ready, event.BUTTON_CLICKED);
     chai.assert.equal(nextState.context.responseTime, "192.2");
   });
   test("Response time for 99 seconds is '99.00'", function () {
     const now = Date.now();
     machine.initialState.context._now = now;
     machine.initialState.context._start = now - 99000;
-    let nextState = machine.transition(state.ready, event.ButtonClicked);
+    let nextState = machine.transition(state.ready, event.BUTTON_CLICKED);
     chai.assert.equal(nextState.context.responseTime, "99.00");
   });
   test("Response time for 9999 seconds is '9999'", function () {
     const now = Date.now();
     machine.initialState.context._now = now;
     machine.initialState.context._start = now - 9999000;
-    let nextState = machine.transition(state.ready, event.ButtonClicked);
+    let nextState = machine.transition(state.ready, event.BUTTON_CLICKED);
     chai.assert.equal(nextState.context.responseTime, "9999");
   });
   test("Response time for 10000.234 seconds is '9999'", function () {
     const now = Date.now();
     machine.initialState.context._now = now;
     machine.initialState.context._start = now - 10000234;
-    let nextState = machine.transition(state.ready, event.ButtonClicked);
+    let nextState = machine.transition(state.ready, event.BUTTON_CLICKED);
     chai.assert.equal(nextState.context.responseTime, "9999");
   });
 
   test("When state is down; transition to up.", function () {
-    let nextState = machine.transition(state.down, event.ButtonClicked);
+    let nextState = machine.transition(state.down, event.BUTTON_CLICKED);
     chai.assert.equal(nextState.value, state.up);
     chai.assert.deepEqual(nextState.actions, [
       { type: action.updateButton },
@@ -99,9 +99,9 @@ suite("Event ButtonClicked", function () {
   });
 });
 
-suite("Event Start", function () {
+suite("Event START", function () {
   test("When state is up; transition to ready.", function () {
-    let nextState = machine.transition(state.up, event.Start);
+    let nextState = machine.transition(state.up, event.START);
     chai.assert.equal(nextState.value, state.ready);
     chai.assert.deepEqual(nextState.actions, [
       { type: action.setLights },
@@ -110,13 +110,13 @@ suite("Event Start", function () {
   });
 
   test("When state is ready; transition to ready.", function () {
-    let nextState = machine.transition(state.ready, event.Start);
+    let nextState = machine.transition(state.ready, event.START);
     chai.assert.equal(nextState.value, state.ready);
     chai.assert.deepEqual(nextState.actions, []);
   });
 
   test("When state is down; transition to down.", function () {
-    let nextState = machine.transition(state.down, event.Start);
+    let nextState = machine.transition(state.down, event.START);
     chai.assert.equal(nextState.value, state.down);
     chai.assert.deepEqual(nextState.actions, []);
   });
