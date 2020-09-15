@@ -6,7 +6,10 @@
   "scripts": {
     "test": "make test",
     "start": "serve .",
-    "postinstall": "make"
+    "postinstall": "make",
+    "preversion": "./bin/is-release-or-hotfix-branch.sh && npm test",
+    "version": "make version",
+    "postversion": "$EDITOR CHANGELOG.md && git commit -av && git tag -a $(jq -r '.version' package.json)"
   },
   "repository": {
     "type": "git",

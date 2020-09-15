@@ -33,3 +33,23 @@ to use nvm to select the right node.js version.
 npm install;
 npm start;
 ```
+
+## Deployment
+
+This projects uses GitHub Actions to deploy to GitHub Pages as a static site.
+A separate gh-pages branch exists that is used for the trigger. Any commits
+pushed to that branch will commit all dist files needed for the static site.
+
+Steps to deploy changes:
+
+1. Create a release or hotfix branch off of development. Branch name should
+   start with 'release/' or 'hotfix/'.
+
+2. Use `npm version` command to bump the version in the package.json files.
+   Example for doing a patch would be `npm version patch`. This will pull up
+   your editor to update the CHANGELOG.md file and commits the change afterward.
+
+3. Merge release or hotfix branch to production branch and push to origin. This
+   will trigger the
+   [GitHub pages deploy action](.github/workflows/github-pages-deploy.yml)
+   to deploy to GitHub Pages.

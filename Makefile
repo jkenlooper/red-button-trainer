@@ -26,6 +26,32 @@ test: test-red-button-machine
 test-red-button-machine: .red-button-machine
 	(cd libs/red-button-machine/; npm test;)
 
+# All child apps and libs within this project should have the same version as
+# the parent.
+.PHONY: version
+version: version-red-button-machine version-digit-to-7segment version-red-button-trainer-components version-utility-redbutton-css version-apps-react
+
+.PHONY: version-red-button-machine
+version-red-button-machine:
+	(cd libs/red-button-machine/; npm version `jq -r '.version' ../../package.json`;)
+
+.PHONY: version-digit-to-7segment
+version-digit-to-7segment:
+	(cd libs/digit-to-7segment/; npm version `jq -r '.version' ../../package.json`;)
+
+.PHONY: version-red-button-trainer-components
+version-red-button-trainer-components:
+	(cd libs/red-button-trainer-components/; npm version `jq -r '.version' ../../package.json`;)
+
+.PHONY: version-utility-redbutton-css
+version-utility-redbutton-css:
+	(cd libs/utility-redbutton-css/; npm version `jq -r '.version' ../../package.json`;)
+
+.PHONY: version-apps-react
+version-apps-react:
+	(cd apps/react/; npm version `jq -r '.version' ../../package.json`;)
+
+
 .index-page: dist/utility-redbutton.css
 
 objects += node_modules
