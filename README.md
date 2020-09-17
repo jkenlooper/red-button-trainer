@@ -49,7 +49,9 @@ Steps to deploy changes:
    Example for doing a patch would be `npm version patch`. This will pull up
    your editor to update the CHANGELOG.md file and commits the change afterward.
 
-3. Merge release or hotfix branch to production branch and push to origin. This
-   will trigger the
+3. Merge release or hotfix branch to production branch. Merge the production
+   branch to gh-pages branch and push to origin. A GitHub Action is triggered
+   when gh-pages is updated. This will trigger the
    [GitHub pages deploy action](.github/workflows/github-pages-deploy.yml)
-   to deploy to GitHub Pages.
+   which will update the static site. Cache-Control is at the mercy of GitHub
+   Pages which is typically 10 minutes.
