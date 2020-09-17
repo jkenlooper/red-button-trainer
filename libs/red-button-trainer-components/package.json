@@ -1,6 +1,6 @@
 {
   "name": "red-button-trainer-components",
-  "version": "1.0.0",
+  "version": "0.0.6",
   "description": "CSS for Red Button Trainer apps.",
   "scripts": {
     "rollup": "rollup -c",

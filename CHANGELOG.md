@@ -21,6 +21,12 @@ Types of changes
 ## [Unreleased] - ...
 -->
 
+## [0.0.6] - 2020-09-17
+
+## Added
+
+- Setup NPM versioning workflow.
+
 ## [0.0.5] - 2020-09-12
 
 ### Changed
