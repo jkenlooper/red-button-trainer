@@ -16,9 +16,12 @@ jobs:
 
       - name: Set git config
         run: |
-          git status;
           git config user.name "$(git log -n1 --pretty=format:%an)"
           git config user.email "$(git log -n1 --pretty=format:%ae)"
+
+      - name: Merge production to gh-pages
+        run: |
+          git merge --no-edit origin/production;
 
       - uses: actions/setup-node@v1
         with:
