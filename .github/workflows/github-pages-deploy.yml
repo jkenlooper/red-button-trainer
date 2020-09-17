@@ -2,7 +2,7 @@ name: GitHub Pages Deploy
 
 on:
   push:
-    branches: [ production ]
+    branches: [ gh-pages ]
 
 jobs:
   build:
@@ -11,18 +11,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: gh-pages
 
       - name: Set git config
         run: |
           git config user.name "$(git log -n1 --pretty=format:%an)"
           git config user.email "$(git log -n1 --pretty=format:%ae)"
-
-      - name: Merge production to gh-pages
-        run: |
-          git fetch origin production
-          git merge --no-edit --allow-unrelated-histories origin/production;
 
       - uses: actions/setup-node@v1
         with:
@@ -33,7 +26,6 @@ jobs:
 
       - name: Has Changes
         run: |
-          git status;
           test "$(git status --porcelain)" != ''
 
       - name: Commit
