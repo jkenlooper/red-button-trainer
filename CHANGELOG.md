@@ -21,6 +21,10 @@ Types of changes
 ## [Unreleased] - ...
 -->
 
+## [0.0.7] - 2020-09-17
+
+Fix GitHub Action workflow with deployment.
+
 ## [0.0.6] - 2020-09-17
 
 ## Added

@@ -1,6 +1,6 @@
 {
   "name": "utility-redbutton-css",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "CSS for Red Button text when used in documentation and other areas of text.",
   "main": "utility-redbutton.css",
   "files": [
