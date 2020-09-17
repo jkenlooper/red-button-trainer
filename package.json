@@ -9,7 +9,7 @@
     "postinstall": "make",
     "preversion": "./bin/is-release-or-hotfix-branch.sh && npm test",
     "version": "make version",
-    "postversion": "$EDITOR CHANGELOG.md && git commit -av && git tag -a $(jq -r '.version' package.json)"
+    "postversion": "$EDITOR CHANGELOG.md && git commit -av -m 'Bump version' && git tag $(jq -r '.version' package.json)"
   },
   "repository": {
     "type": "git",
