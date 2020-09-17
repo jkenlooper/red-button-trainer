@@ -16,6 +16,7 @@ jobs:
 
       - name: Set git config
         run: |
+          git status;
           git config user.name "$(git log -n1 --pretty=format:%an)"
           git config user.email "$(git log -n1 --pretty=format:%ae)"
 
@@ -28,6 +29,7 @@ jobs:
 
       - name: Has Changes
         run: |
+          git status;
           test "$(git status --porcelain)" != ''
 
       - name: Commit
