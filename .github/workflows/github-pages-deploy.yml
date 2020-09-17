@@ -21,6 +21,7 @@ jobs:
 
       - name: Merge production to gh-pages
         run: |
+          git fetch origin production
           git merge --no-edit origin/production;
 
       - uses: actions/setup-node@v1
