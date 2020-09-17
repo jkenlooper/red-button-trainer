@@ -22,7 +22,7 @@ jobs:
       - name: Merge production to gh-pages
         run: |
           git fetch origin production
-          git merge --no-edit origin/production;
+          git merge --no-edit --allow-unrelated-histories origin/production;
 
       - uses: actions/setup-node@v1
         with:
