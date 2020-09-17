@@ -1,12 +1,15 @@
 {
   "name": "red-button-trainer",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Production grade red button training for business critical applications.",
   "private": true,
   "scripts": {
     "test": "make test",
     "start": "serve .",
-    "postinstall": "make"
+    "postinstall": "make",
+    "preversion": "./bin/is-release-or-hotfix-branch.sh && npm test",
+    "version": "make version",
+    "postversion": "$EDITOR CHANGELOG.md && git commit -av && git tag -a $(jq -r '.version' package.json)"
   },
   "repository": {
     "type": "git",
