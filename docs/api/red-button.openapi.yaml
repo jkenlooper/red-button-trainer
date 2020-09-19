@@ -1,0 +1,69 @@
+openapi: 3.0.1
+info:
+  title: Red Button API
+  version: 0.0.1
+  description: API for Red Button Applications
+  termsOfService: 'http://tos.example.com/'
+  contact:
+    email: jake@weboftomorrow.com
+    name: Jake Hickenlooper
+    url: 'http://red-button-trainer.weboftomorrow.com'
+  license:
+    name: GNU Affero General Public License
+    url: 'http://www.gnu.org/licenses/agpl-3.0.en.html'
+externalDocs:
+  description: Find out more about Swagger
+  url: 'http://swagger.io'
+servers:
+  - url: /api/v0
+paths:
+  /challenge/:
+    summary: get timeline challenge
+    get:
+      summary: Next challenge data for when to push  the red button
+      description: ''
+      operationId: getChallengeData
+      responses:
+        '200':
+          description: Default error sample response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Challenge'
+
+              examples:
+                challenge1:
+                  value: |-
+                    {
+                    "id": "asdf",
+                    "startTime": 1234,
+                    "instructions": "push the button",
+                    "stopTime": 2222,
+                    "lights": [
+                    {
+                    "color": "red",
+                    "timeline": [0,1,1,0,0,0],
+                    },
+                    {
+                    "color": "red",
+                    "timeline": [0,1,1,0,0,0],
+                    }
+                    ]
+                    }
+components:
+  schemas:
+    Challenge:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        startTime:
+          type: integer
+          format: epoch timestamp
+        stopTime:
+          type: integer
+          format: epoch timestamp
+
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Red Button API Docs</title>
+    <link href="dist/swagger-editor.css" rel="stylesheet" />
+    <link rel="stylesheet" href="dist/utility-redbutton.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="ui.html">Index</a>
+    </nav>
+    <div id="swagger-editor"></div>
+    <script src="dist/swagger-editor-bundle.js"></script>
+    <script src="dist/swagger-editor-standalone-preset.js"></script>
+    <script>
+      window.onload = function () {
+        // Build a system
+        const editor = SwaggerEditorBundle({
+          dom_id: "#swagger-editor",
+          url: "./red-button.openapi.yaml",
+          layout: "StandaloneLayout",
+          presets: [SwaggerEditorStandalonePreset],
+        });
+
+        window.editor = editor;
+      };
+    </script>
+  </body>
+</html>
