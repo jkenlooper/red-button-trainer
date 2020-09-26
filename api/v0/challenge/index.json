@@ -1,0 +1,34 @@
+{
+  "id": "static-random-10",
+  "startTime": null,
+  "instructions": "Push the button when green light turns on.",
+  "stopTime": 13000,
+  "lights": [
+    {
+      "color": "red",
+      "timeline": [
+        {
+          "type": "toggle",
+          "offset": 0
+        },
+        {
+          "type": "toggle",
+          "offset": 3000
+        }
+      ]
+    },
+    {
+      "color": "green",
+      "timeline": [
+        {
+          "type": "random",
+          "offset": 3000
+        },
+        {
+          "type": "random",
+          "offset": 13000
+        }
+      ]
+    }
+  ]
+}

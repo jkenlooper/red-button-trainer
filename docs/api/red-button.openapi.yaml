@@ -35,20 +35,38 @@ paths:
                 challenge1:
                   value: |-
                     {
-                    "id": "asdf",
-                    "startTime": 1234,
-                    "instructions": "push the button",
-                    "stopTime": 2222,
-                    "lights": [
-                    {
-                    "color": "red",
-                    "timeline": [0,1,1,0,0,0],
-                    },
-                    {
-                    "color": "red",
-                    "timeline": [0,1,1,0,0,0],
-                    }
-                    ]
+                      "id": "static-random-10",
+                      "startTime": null,
+                      "instructions": "Push the button when green light turns on.",
+                      "stopTime": 13000,
+                      "lights": [
+                        {
+                          "color": "red",
+                          "timeline": [
+                            {
+                              "type": "toggle",
+                              "offset": 0
+                            },
+                            {
+                              "type": "toggle",
+                              "offset": 3000
+                            }
+                          ]
+                        },
+                        {
+                          "color": "green",
+                          "timeline": [
+                            {
+                              "type": "random",
+                              "offset": 3000
+                            },
+                            {
+                              "type": "random",
+                              "offset": 13000
+                            }
+                          ]
+                        }
+                      ]
                     }
 components:
   schemas:
@@ -56,6 +74,10 @@ components:
       type: object
       required:
         - id
+        - startTime
+        - instructions
+        - stopTime
+        - lights
       properties:
         id:
           type: string
@@ -65,5 +87,31 @@ components:
         stopTime:
           type: integer
           format: epoch timestamp
-
-
+        instructions:
+          type: string
+        lights:
+          type: array
+          items:
+            $ref: "#/components/schemas/Light"
+    Light:
+      type: object
+      required:
+        - color
+        - timeline
+      properties:
+        color:
+          type: string
+        timeline:
+          type: array
+          items:
+            $ref: "#/components/schemas/Timeline"
+    Timeline:
+      type: object
+      required:
+        - type
+        - offset
+      properties:
+        type:
+          type: string
+        offset:
+          type: integer
