@@ -1,7 +1,0 @@
-{
-  "name": "response-time-css",
-  "version": "1.0.0",
-  "description": "CSS for Red Button Trainer apps.",
-  "main": "response-time.css",
-  "style": "response-time.css"
-}

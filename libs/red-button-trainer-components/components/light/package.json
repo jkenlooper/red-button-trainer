@@ -1,7 +1,0 @@
-{
-  "name": "light-css",
-  "version": "1.0.0",
-  "description": "CSS for Red Button Trainer apps.",
-  "main": "light.css",
-  "style": "light.css"
-}

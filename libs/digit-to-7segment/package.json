@@ -1,8 +1,0 @@
-{
-  "name": "digit-to-7segment",
-  "version": "0.0.7",
-  "description": "",
-  "main": "index.js",
-  "private": true,
-  "type": "module"
-}
